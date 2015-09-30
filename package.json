@@ -1,0 +1,8 @@
+{
+  "name": "riot-example",
+  "version": "0.0.0",
+  "description": "",
+  "devDependencies": {
+    "riot": "^2.2.4"
+  }
+}
