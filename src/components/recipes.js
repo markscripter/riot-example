@@ -1,1 +1,0 @@
-import riot from 'riot';

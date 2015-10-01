@@ -1,7 +1,7 @@
 import riot from 'riot';
-import recipe from './recipe'
-import recipeEntity from './recipe/recipe.tag'
-import recipes from './recipes'
-import recipesEntity from './recipes/recipes.tag'
+import recipe from './components/recipe';
 
-riot.tag('recipes',)
+riot.mount('recipe', {
+  title: 'Hello',
+  description: 'there',
+});
