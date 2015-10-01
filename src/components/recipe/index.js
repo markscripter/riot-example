@@ -1,5 +1,5 @@
 import riot from 'riot';
-// import recipeTemplate from './recipe.tag';
+
 const recipeTemplate = `
 <section class="recipe">
   <h1 class="recipe-title">{title}</h1>
