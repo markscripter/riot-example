@@ -1,11 +1,19 @@
 import riot from 'riot';
 import store from './store.js';
 
-const recipes = () => {
-  return Object.assign(
-    {},
-    store
-  );
+const RecipesStore = () => {
+  const recipeStore = Object.assign({}, store());
+
+  recipeStore.on('update', async (recipes) => {
+    try {
+      console.log(recipes);
+    } catch (e) {
+      console.log(e);
+    }
+  });
+
+  return recipeStore;
 };
 
-export default recipes;
+const instance = RecipesStore();
+export default instance;

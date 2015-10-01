@@ -1,5 +1,5 @@
 import babelify from 'babelify';
-import browserify from 'browserify'
+import browserify from 'browserify';
 import combiner from 'stream-combiner2';
 import gulp from 'gulp';
 import eslint from 'gulp-eslint';
@@ -14,18 +14,15 @@ gulp.task('public-html', () => {
 
 gulp.task('public-js', () => {
   var b = browserify({
-      entries: './src/app.js',
-      debug: true,
-      transform: [babelify.configure({optional: ['runtime', 'es7.asyncFunctions']})],
-      fullPaths: true
+    entries: './src/app.js',
+    debug: true,
+    transform: [babelify.configure({optional: ['runtime', 'es7.asyncFunctions']})],
+    fullPaths: true,
   });
   return b.bundle()
-      .pipe(source('app.js'))
-      .pipe(buffer())
-      .pipe(gulp.dest(path.join(__dirname, 'public/js/')));
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest(path.join(__dirname, 'public/js/')));
 });
-
-
-
 
 gulp.task('public', ['public-html', 'public-js']);
