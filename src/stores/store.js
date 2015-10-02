@@ -1,26 +1,21 @@
 import riot from 'riot';
 
-export default store = (control = riot.observable({})) => {
+const store = (control = riot.observable({})) => {
   return {
-    control: control,
+    control,
     on() {
-      const args = [].slice.call(arguments);
-      this.control.on.apply(this, args);
+      this.control.on.apply(this, [].slice.call(arguments));
     },
-
     one() {
-      const args = [].slice.call(arguments);
-      this.control.one.apply(this, args);
+      this.control.one.apply(this, [].slice.call(arguments));
     },
-
     off() {
-      const args = [].slice.call(arguments);
-      this.control.off.apply(this, args);
+      this.control.off.apply(this, [].slice.call(arguments));
     },
-
     trigger() {
-      const args = [].slice.call(arguments);
-      this.control.trigger.apply(this, args);
+      this.control.trigger.apply(this, [].slice.call(arguments));
     },
   };
 };
+
+export default store();

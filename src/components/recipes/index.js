@@ -1,5 +1,6 @@
 import riot from 'riot';
 import recipe from '../recipe';
+import dispatcher from '../../utilities/dispatcher';
 
 const recipesTemplate = `
 <section class="recipes">
@@ -8,26 +9,13 @@ const recipesTemplate = `
 </section>`;
 
 export default riot.tag('recipes', recipesTemplate, function(opts) {
-  this.recipes = opts.items;
+  this.on("mount", () => {
+    console.log('Recipes mounted');
+  });
 
-  this.updateItems = function() {
-    this.recipes = [
-      {
-        title: '1 - New',
-        description: '1 - New description',
-      },
-      {
-        title: '2 - title',
-        description: '2 - hi',
-      },
-      {
-        title: '3 - eg',
-        description: '3 - age',
-      },
-      {
-        title: '4 - titlagee',
-        description: '4 - descriptions',
-      },
-    ];
-  };
+  dispatcher.on("recipes_data_updated", () => {
+    this.data = this.stores.recipe.recipesData;
+    this.update();
+  });
+
 });

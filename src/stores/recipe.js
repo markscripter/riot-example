@@ -2,11 +2,14 @@ import riot from 'riot';
 import store from './store.js';
 
 const RecipesStore = () => {
-  const recipeStore = Object.assign({}, store());
+  let recipeStore = Object.assign({}, store);
 
-  recipeStore.on('update', async (recipes) => {
+  recipeStore.recipesData = [];
+
+  recipeStore.on('incoming_recipes', async (recipes) => {
     try {
-      console.log(recipes);
+      Array.isArray(recipes) ? this.recipesData = recipes : 1;
+      this.trigger('recipes_data_updated');
     } catch (e) {
       console.log(e);
     }
@@ -15,5 +18,4 @@ const RecipesStore = () => {
   return recipeStore;
 };
 
-const instance = RecipesStore();
-export default instance;
+export default RecipesStore();
