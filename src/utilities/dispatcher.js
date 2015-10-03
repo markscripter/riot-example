@@ -1,35 +1,31 @@
 import stores from '../stores'
 
-const setStores = (stores) => {
-  const keys = Object.keys(stores);
-  return keys.map((key) => {
-    return stores[key];
-  });
-};
+export default {
 
-const Dispatcher = {
+  id : Math.floor(Math.random() * 100),
   stores: stores,
-  _stores : setStores(stores),
+
+  _stores : Object.keys(stores).map((key) => {
+    return stores[key];
+  }),
   on() {
     this._stores.forEach((el) => {
-      el.control.on.apply(null, [].slice.call(arguments));
+      el.on.apply(null, [].slice.call(arguments));
     });
   },
   one() {
     this._stores.forEach((el) => {
-      el.control.one.apply(null, [].slice.call(arguments));
+      el.one.apply(null, [].slice.call(arguments));
     });
   },
   off() {
     this._stores.forEach((el) => {
-      el.control.off.apply(null, [].slice.call(arguments));
+      el.off.apply(null, [].slice.call(arguments));
     });
   },
   trigger() {
     this._stores.forEach((el) => {
-      el.control.trigger.apply(null, [].slice.call(arguments));
+      el.trigger.apply(null, [].slice.call(arguments));
     });
   }
-}
-
-export default Dispatcher;
+};

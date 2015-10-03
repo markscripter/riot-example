@@ -1,21 +1,27 @@
 import riot from 'riot';
 
-const store = (control = riot.observable({})) => {
+const Store = () => {
+
+  const id  = Math.floor(Math.random() * 100);
+  const control = riot.observable({});
+
   return {
-    control,
+    getId() {
+      return id;
+    },
     on() {
-      this.control.on.apply(this, [].slice.call(arguments));
+      control.on.apply(this, [].slice.call(arguments));
     },
     one() {
-      this.control.one.apply(this, [].slice.call(arguments));
+      control.one.apply(this, [].slice.call(arguments));
     },
     off() {
-      this.control.off.apply(this, [].slice.call(arguments));
+      control.off.apply(this, [].slice.call(arguments));
     },
     trigger() {
-      this.control.trigger.apply(this, [].slice.call(arguments));
+      control.trigger.apply(this, [].slice.call(arguments));
     },
   };
 };
 
-export default store();
+export default Store();

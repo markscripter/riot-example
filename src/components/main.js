@@ -1,22 +1,21 @@
 import riot from 'riot';
 import recipes from './recipes';
-import dispatcher from '../utilities/dispatcher';
+import dispatcher from "../utilities/dispatcher";
 
 const recipesTemplate = `
 <article class="main">
-  <recipes data={stores}></recipes>
+  <recipes data={stores.recipe.recipesData}></recipes>
 </article>`;
 
 export default riot.tag('main', recipesTemplate, function(opts) {
-  this.stores = [];
+  this.dispatcher = opts.dispatcher || dispatcher;
+  this.stores = this.dispatcher.stores;
 
-  this.on("mount", () => {
-    console.log('Main mounted');
-  });
+  this.on("mount", () => {});
+  this.on("update", () => {});
 
-  dispatcher.on("stores_updated", (stores) => {
-    Array.isArray(stores) ? this.stores = stores : 1;
+  this.dispatcher.on("stores_updated", () => {
     this.update();
-  }.bind(this));
+  });
 
 });

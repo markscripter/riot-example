@@ -1,14 +1,13 @@
 import riot from 'riot';
 import store from './store';
-import dispatcher from '../utilities/dispatcher';
 
-const mainStore = Object.assign({
-  stores : [],
+const mainStore = Object.assign({}, {
+  stores: [],
   init() {
-    this.on('incoming_stores', async (stores) => {
+    this.on('incoming_stores', async (data) => {
       try {
         Array.isArray(stores) ? this.stores = stores : 1;
-        dispatcher.trigger('stores_updated', this.stores);
+        this.trigger('stores_updated');
       } catch (e) {
         console.log(e);
       }

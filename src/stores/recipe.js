@@ -1,13 +1,13 @@
 import riot from 'riot';
-import store from './store.js';
+import store from './store';
 
-const recipeStore = Object.assign({
-  recipesData : [],
+const recipeStore = Object.assign({}, {
+  recipesData: [{title: 't'}],
   init() {
-    this.on('incoming_recipes', async (recipes) => {
+    this.on('incoming_recipes', async (data) => {
       try {
-        Array.isArray(recipes) ? this.recipesData = recipes : 1;
-        dispatcher.trigger('recipes_updated', this.recipesData);
+        Array.isArray(data.recipes) ? this.recipesData = data.recipes : 1;
+        this.trigger('recipes_data_updated');
       } catch (e) {
         console.log(e);
       }
@@ -16,5 +16,4 @@ const recipeStore = Object.assign({
 }, store);
 
 recipeStore.init();
-
 export default recipeStore;

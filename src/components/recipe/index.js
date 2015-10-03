@@ -8,9 +8,9 @@ const recipeTemplate = `
 </section>`;
 
 export default riot.tag('recipe', recipeTemplate, function(opts) {
-  this.on("mount", () => {
-    console.log('Recipe', opts.title, 'mounted');
-  });
+  this.on("mount", () => {});
+  this.on("update", () => {});
+
   this.title = opts.title;
   this.description = opts.description;
 });
