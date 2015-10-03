@@ -3,7 +3,7 @@ import store from './store';
 
 const recipeStore = Object.assign({}, {
   recipesData: [{title: 't'}],
-  init() {
+  listen() {
     this.on('incoming_recipes', async (data) => {
       try {
         Array.isArray(data.recipes) ? this.recipesData = data.recipes : 1;
@@ -15,5 +15,5 @@ const recipeStore = Object.assign({}, {
   }
 }, store);
 
-recipeStore.init();
+recipeStore.listen();
 export default recipeStore;

@@ -3,7 +3,7 @@ import store from './store';
 
 const mainStore = Object.assign({}, {
   stores: [],
-  init() {
+  listen() {
     this.on('incoming_stores', async (data) => {
       try {
         Array.isArray(stores) ? this.stores = stores : 1;
@@ -15,5 +15,5 @@ const mainStore = Object.assign({}, {
   }
 }, store);
 
-mainStore.init();
+mainStore.listen();
 export default mainStore;
