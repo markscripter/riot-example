@@ -39,7 +39,7 @@ setTimeout(() => {
     recipes.push(el);
   });
   dispatcher.trigger('incoming_recipes', {recipes});
-}, 5000);
+}, 500);
 
 
 setTimeout(() => {
@@ -47,17 +47,17 @@ setTimeout(() => {
     recipes.push(el);
   });
   dispatcher.trigger('incoming_recipes', {recipes});
-}, 10000);
+}, 1000);
 
 setTimeout(() => {
   recipes4.forEach((el) => {
     recipes.push(el);
   });
   dispatcher.trigger('incoming_recipes', {recipes});
-}, 15000);
+}, 1500);
 
 
 setTimeout(() => {
   recipes.shift();
   dispatcher.trigger('incoming_recipes', {recipes});
-}, 20000);
+}, 2000);

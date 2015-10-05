@@ -8,13 +8,13 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 
 gulp.task('public-html', () => {
-  return gulp.src(path.join(__dirname, '/src/layout.html'))
+  return gulp.src(path.join(__dirname, '/app/layout.html'))
     .pipe(gulp.dest(path.join(__dirname, '/public/')));
 });
 
 gulp.task('public-js', () => {
   var b = browserify({
-    entries: './src/app.js',
+    entries: './app/app.js',
     debug: true,
     transform: [babelify.configure({optional: ['runtime', 'es7.asyncFunctions']})],
     fullPaths: true,

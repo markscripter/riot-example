@@ -3,8 +3,8 @@ import dispatcher from '../../utilities/dispatcher';
 
 const recipeTemplate = `
 <section class="recipe">
-  <h1 class="recipe-title">{title}</h1>
-  <p class="recipe-description">{description}</p>
+  <h1 class="title">{title}</h1>
+  <p class="description">{description}</p>
 </section>`;
 
 export default riot.tag('recipe', recipeTemplate, function(opts) {
