@@ -1,12 +1,7 @@
 import riot from 'riot';
 import recipe from '../recipe';
 import dispatcher from "../../utilities/dispatcher";
-
-const recipesTemplate = `
-<section class="recipes">
-  <recipe each={storesData}></recipe>
-  <button onclick={updateItems}>Update</button>
-</section>`;
+import recipesTemplate from "./template";
 
 export default riot.tag('recipes', recipesTemplate, function(opts) {
   this.dispatcher = opts.dispatcher || dispatcher;
@@ -15,6 +10,14 @@ export default riot.tag('recipes', recipesTemplate, function(opts) {
 
   this.on("mount", () => {});
   this.on("update", () => {});
+
+  this.updateItems = (event) => {
+    fetch('/recipes').then((response) => {
+      return response.json();
+    }).then((data) => {
+      this.dispatcher.trigger('incoming_recipes', {recipes: data})
+    });
+  };
 
   this.dispatcher.on("recipes_data_updated", () => {
     this.storesData = this.stores.recipe.recipesData;

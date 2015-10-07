@@ -1,0 +1,42 @@
+[
+  {
+    "id": "000001",
+    "name": "Thai Chicken Wrap",
+    "description": "The best Thai Chicken Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000002",
+    "name": "BLT Wrap",
+    "description": "The best BLT Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000003",
+    "name": "Tofu Wrap",
+    "description": "The best Tofu Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000004",
+    "name": "Chicken Salad Wrap",
+    "description": "The best Chicken Salad Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000005",
+    "name": "Garden Veggie Wrap",
+    "description": "The best Garden Veggie Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000006",
+    "name": "Pizza Wrap",
+    "description": "The best Pizza Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000007",
+    "name": "Corn Dog Wrap",
+    "description": "The best Corn Dog Wrap you will ever eat. In your life. Period."
+  },
+  {
+    "id": "000008",
+    "name": "Spam Wrap",
+    "description": "The best Spam Wrap you will ever eat. In your life. Period."
+  }
+]
