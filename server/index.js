@@ -14,8 +14,8 @@ app.use(helmet());
 app.use(koaBody({
   extendTypes: {
     json: ['application/x-javascript'],
-    multipart: ['multipart/mixed']
-  }
+    multipart: ['multipart/mixed'],
+  },
 }));
 
 // Static Files

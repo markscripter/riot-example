@@ -3,5 +3,5 @@ import main from './main';
 
 export default {
   recipe,
-  main
+  main,
 };

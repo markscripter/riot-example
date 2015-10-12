@@ -12,7 +12,7 @@ const mainStore = Object.assign({}, {
         console.log(e);
       }
     });
-  }
+  },
 }, store);
 
 mainStore.listen();

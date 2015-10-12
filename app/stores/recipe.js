@@ -12,7 +12,7 @@ const recipeStore = Object.assign({}, {
         console.log(e);
       }
     });
-  }
+  },
 }, store);
 
 recipeStore.listen();

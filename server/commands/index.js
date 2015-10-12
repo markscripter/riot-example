@@ -7,5 +7,5 @@ export default {
   getStore,
   getStoreById,
   replaceStore,
-  writeStore
+  writeStore,
 };
