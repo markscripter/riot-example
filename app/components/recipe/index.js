@@ -6,6 +6,6 @@ export default riot.tag('recipe', recipeTemplate, function(opts) {
   this.on('mount', () => {});
   this.on('update', () => {});
 
-  this.title = opts.title;
+  this.name = opts.name;
   this.description = opts.description;
 });
